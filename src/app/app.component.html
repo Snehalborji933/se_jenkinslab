@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>shopping_cart</title>
+</head>
+<body>
+  <div class="shopping-list">
+    <h2>Shopping List</h2>
+   
+    <div class="add-item">
+      <input type="text" [(ngModel)]="newItem.product" placeholder="Product">
+      <input type="text" [(ngModel)]="newItem.quantity" placeholder="Quantity">
+      <input type="text" [(ngModel)]="newItem.price" placeholder="Price">
+      <button (click)="addItem()">Add</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Total</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items; let i = index">
+          <td>{{ item.product }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.price | currency : 'INR' }}</td>
+          <td>{{ item.total | currency: 'INR' }}</td>
+          <td>
+            <button (click)="removeItem(i)">Remove</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+ 
+
+</body>
+</html>

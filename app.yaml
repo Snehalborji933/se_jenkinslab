@@ -1,0 +1,10 @@
+runtime: nodejs18
+instance_class: F2
+env_variables:
+  BUCKET_NAME: "shopping_cart" 
+handlers: 
+  - url: /
+    static_files: dist/shopping_cart/index.html
+    upload: dist/shopping_cart/index.html 
+  - url: /
+    static_dir: dist/shopping_cart
